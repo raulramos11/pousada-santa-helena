@@ -7,8 +7,8 @@
   display: grid; place-items: center; text-align: center;
   padding: 4rem 1.5rem 5rem;
   background:
-    radial-gradient(ellipse 80% 55% at 50% -5%, rgba(255, 253, 250, 0.95), transparent 70%),
-    radial-gradient(circle at 50% 120%, rgba(127, 143, 116, 0.14), transparent 60%),
+    radial-gradient(ellipse 80% 55% at 50% -5%, rgba(241, 232, 223, 0.9), transparent 70%),
+    radial-gradient(circle at 50% 120%, rgba(106, 122, 96, 0.18), transparent 60%),
     linear-gradient(180deg, var(--cream) 0%, var(--mauve-soft) 100%);
 }
 .hero-inner { max-width: 780px; }
@@ -24,7 +24,7 @@
 .scroll-hint {
   position: absolute; left: 50%; bottom: 1.8rem; transform: translateX(-50%);
   display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
-  color: var(--brand); background: rgba(255, 253, 250, 0.6); border: 1px solid var(--line);
+  color: var(--brand); background: rgba(241, 232, 223, 0.7); border: 1px solid var(--line);
   animation: bob 2.4s ease-in-out infinite;
 }
 @keyframes bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 7px); } }

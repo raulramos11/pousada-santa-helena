@@ -12,7 +12,7 @@
     whatsappMsg: 'Olá! Gostaria de informações e disponibilidade na Pousada Santa Helena.',
     telefone: '',                 // ex.: '(11) 4035-0000'
     email: '',                    // ex.: 'contato@pousadasantahelena.com.br'
-    instagram: '',                // ex.: 'pousadasantahelena' (sem @)
+    instagram: 'pousadasantahelenaa', // perfil oficial (sem @)
   };
 
   function waLink() {
@@ -57,7 +57,7 @@
   // --- Instagram ---
   if (CONFIG.instagram) {
     document.querySelectorAll('[data-ig]').forEach(function (el) {
-      el.setAttribute('href', 'https://instagram.com/' + CONFIG.instagram);
+      el.setAttribute('href', 'https://www.instagram.com/' + CONFIG.instagram + '/');
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener');
       el.hidden = false;

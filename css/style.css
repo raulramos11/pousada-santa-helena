@@ -1,23 +1,24 @@
-/* ===== Paleta (extraída da logo) =====
+/* ===== Paleta (extraída da logo) — versão um tom mais escura =====
    Logo: vinho-café #533A3D sobre branco, sombras em malva acinzentado.
-   Sálvia e dourado são acentos de apoio, usados com parcimônia. */
+   Fundos passaram de creme claro para areia/malva; textos secundários e o
+   dourado escureceram junto para manter contraste AA (>= 4.5:1). */
 :root {
   --brand: #533A3D;        /* cor principal da logo */
-  --brand-deep: #3B2729;   /* variação escura (rodapé, hover) */
-  --mauve: #8A7676;        /* sombra/raios da logo */
-  --mauve-soft: #EBE2DF;   /* malva bem claro para bordas e fundos */
-  --cream: #F8F4EE;        /* branco da logo aquecido */
-  --paper: #FFFDFA;
-  --sage: #7F8F74;         /* acento de natureza */
-  --gold: #B98A4B;         /* acento quente para detalhes finos */
-  --text: #2E2223;
-  --text-dim: #6E5D5E;
-  --line: rgba(83, 58, 61, 0.12);
+  --brand-deep: #33211F;   /* variação escura (rodapé, hover) */
+  --mauve: #7A6566;        /* sombra/raios da logo */
+  --mauve-soft: #D3C3BD;   /* malva para bordas e fundos */
+  --cream: #E6DAD0;        /* fundo principal (areia quente) */
+  --paper: #F1E8DF;        /* cartões, um degrau acima do fundo */
+  --sage: #6A7A60;         /* acento de natureza */
+  --gold: #7E5822;         /* acento quente (texto e fios) */
+  --text: #2A1E1F;
+  --text-dim: #574647;
+  --line: rgba(83, 58, 61, 0.18);
   --radius: 18px;
   --radius-sm: 12px;
   --maxw: 1100px;
-  --shadow: 0 18px 48px rgba(83, 58, 61, 0.10);
-  --shadow-sm: 0 6px 18px rgba(83, 58, 61, 0.08);
+  --shadow: 0 18px 48px rgba(51, 33, 31, 0.16);
+  --shadow-sm: 0 6px 18px rgba(51, 33, 31, 0.12);
 }
 
 /* ===== Base ===== */
@@ -59,13 +60,16 @@ section { scroll-margin-top: 5rem; }
 .ph {
   position: relative; min-height: 210px; border-radius: var(--radius); overflow: hidden;
   background:
-    radial-gradient(circle at 28% 24%, rgba(255,255,255,0.5), transparent 55%),
-    linear-gradient(135deg, var(--mauve-soft), #D7C9C6 55%, #C3CBB6);
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,0.3), transparent 55%),
+    linear-gradient(135deg, var(--mauve-soft), #BFAEA9 55%, #A9B39C);
 }
+/* Foto real dentro do quadro: cobre o degradê e mantém o rótulo por cima. */
+.ph > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph:has(> img)::after { color: var(--paper); background: linear-gradient(180deg, transparent, rgba(51, 33, 31, 0.7)); }
 .ph::after {
   content: attr(data-label); position: absolute; inset: auto 0 0 0; padding: 0.65rem 0.95rem;
   font-size: 0.82rem; font-weight: 600; color: var(--brand-deep);
-  background: linear-gradient(180deg, transparent, rgba(255, 253, 250, 0.85));
+  background: linear-gradient(180deg, transparent, rgba(241, 232, 223, 0.85));
 }
 
 /* ===== Navegação ===== */
@@ -73,7 +77,7 @@ section { scroll-margin-top: 5rem; }
   position: sticky; top: 0; z-index: 20;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 0.7rem clamp(1rem, 4vw, 2.75rem);
-  background: rgba(248, 244, 238, 0.82); backdrop-filter: blur(12px);
+  background: rgba(230, 218, 208, 0.88); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
