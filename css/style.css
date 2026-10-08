@@ -1,0 +1,130 @@
+/* ===== Paleta (extraída da logo) =====
+   Logo: vinho-café #533A3D sobre branco, sombras em malva acinzentado.
+   Sálvia e dourado são acentos de apoio, usados com parcimônia. */
+:root {
+  --brand: #533A3D;        /* cor principal da logo */
+  --brand-deep: #3B2729;   /* variação escura (rodapé, hover) */
+  --mauve: #8A7676;        /* sombra/raios da logo */
+  --mauve-soft: #EBE2DF;   /* malva bem claro para bordas e fundos */
+  --cream: #F8F4EE;        /* branco da logo aquecido */
+  --paper: #FFFDFA;
+  --sage: #7F8F74;         /* acento de natureza */
+  --gold: #B98A4B;         /* acento quente para detalhes finos */
+  --text: #2E2223;
+  --text-dim: #6E5D5E;
+  --line: rgba(83, 58, 61, 0.12);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --maxw: 1100px;
+  --shadow: 0 18px 48px rgba(83, 58, 61, 0.10);
+  --shadow-sm: 0 6px 18px rgba(83, 58, 61, 0.08);
+}
+
+/* ===== Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* Hierarquia tipográfica — escala modular, serifada nos títulos */
+h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; line-height: 1.1; margin: 0 0 0.45em; color: var(--brand); letter-spacing: 0.01em; }
+h2 { font-size: clamp(2rem, 4.5vw, 2.9rem); font-weight: 600; }
+h3 { font-size: 1.5rem; font-weight: 700; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--text-dim); }
+
+/* Eyebrow com fio dourado — reforça hierarquia e marca */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  text-transform: uppercase; letter-spacing: 0.26em; font-size: 0.74rem; font-weight: 800;
+  color: var(--gold); margin: 0 0 0.9rem;
+}
+.eyebrow::before { content: ""; width: 1.8rem; height: 1px; background: var(--gold); opacity: 0.8; }
+.section-head .eyebrow::before, .hero .eyebrow::before { display: none; }
+.section-head .eyebrow, .hero .eyebrow { justify-content: center; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 6rem 1.5rem; }
+section { scroll-margin-top: 5rem; }
+
+/* ===== Placeholder de imagem (fundo suave, sem borda tracejada) ===== */
+.ph {
+  position: relative; min-height: 210px; border-radius: var(--radius); overflow: hidden;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,0.5), transparent 55%),
+    linear-gradient(135deg, var(--mauve-soft), #D7C9C6 55%, #C3CBB6);
+}
+.ph::after {
+  content: attr(data-label); position: absolute; inset: auto 0 0 0; padding: 0.65rem 0.95rem;
+  font-size: 0.82rem; font-weight: 600; color: var(--brand-deep);
+  background: linear-gradient(180deg, transparent, rgba(255, 253, 250, 0.85));
+}
+
+/* ===== Navegação ===== */
+.nav {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.7rem clamp(1rem, 4vw, 2.75rem);
+  background: rgba(248, 244, 238, 0.82); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+.brand img { border-radius: 50%; background: #fff; box-shadow: var(--shadow-sm); }
+.brand span { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.4rem; color: var(--brand); }
+.nav nav { display: flex; align-items: center; gap: 1.8rem; }
+.nav nav a:not(.btn) {
+  position: relative; text-decoration: none; color: var(--text-dim);
+  font-weight: 600; font-size: 0.95rem; transition: color 0.2s;
+}
+.nav nav a:not(.btn)::after {
+  content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px;
+  background: var(--gold); transition: right 0.25s ease;
+}
+.nav nav a:not(.btn):hover, .nav nav a:not(.btn):focus-visible { color: var(--brand); }
+.nav nav a:not(.btn):hover::after, .nav nav a:not(.btn):focus-visible::after { right: 0; }
+.menu-btn { display: none; align-items: center; justify-content: center; background: none; border: 1px solid var(--line); border-radius: 10px; color: var(--brand); width: 2.7rem; height: 2.7rem; cursor: pointer; }
+
+/* ===== Botões ===== */
+.cta { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; margin-top: 2rem; }
+.cta.left { justify-content: flex-start; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.7rem; border-radius: 999px;
+  background: var(--brand); color: var(--paper); text-decoration: none; font-weight: 700;
+  border: 1px solid var(--brand); box-shadow: var(--shadow-sm);
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.btn:hover, .btn:focus-visible { background: var(--brand-deep); transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn.ghost { background: transparent; color: var(--brand); border-color: var(--mauve); box-shadow: none; }
+.btn.ghost:hover, .btn.ghost:focus-visible { background: var(--brand); color: var(--paper); }
+.btn.small { padding: 0.55rem 1.2rem; font-size: 0.9rem; }
+
+/* ===== Animação de entrada ===== */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== Responsivo / acessibilidade ===== */
+@media (max-width: 760px) {
+  .menu-btn { display: inline-flex; }
+  .nav nav {
+    position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 1.1rem; align-items: flex-start;
+    padding: 1.3rem clamp(1rem, 4vw, 2.75rem); background: var(--cream); border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  .nav nav.open { display: flex; }
+  .wrap { padding: 4rem 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .scroll-hint { transition: none; animation: none; }
+}
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
