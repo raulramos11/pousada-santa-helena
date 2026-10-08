@@ -77,6 +77,8 @@
 .around-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .around-ico { display: grid; place-items: center; width: 3.2rem; height: 3.2rem; border-radius: 14px; background: var(--cream); color: var(--brand); margin-bottom: 1.1rem; }
 .around-ico svg { width: 1.7rem; height: 1.7rem; }
+.around-card.has-photo { padding-top: 0; overflow: hidden; }
+.around-photo { display: block; width: calc(100% + 3.4rem); max-width: none; height: 150px; object-fit: cover; margin: 0 -1.7rem 1.1rem; }
 .around-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
 .around-card p { color: var(--text-dim); margin: 0; font-size: 0.95rem; }
 
