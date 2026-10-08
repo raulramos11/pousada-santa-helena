@@ -1,4 +1,4 @@
-﻿# Preview local sem prender a sessão do shell.
+# Preview local sem prender a sessão do shell.
 #   .\preview.ps1            -> sobe em 8082 desacoplado e confirma HTTP 200
 #   .\preview.ps1 -Port 8090
 #   .\preview.ps1 -Stop      -> encerra o servidor dessa porta
@@ -21,12 +21,12 @@ if ($Stop) {
     exit 0
 }
 
-if (Get-Listener) { Write-Output "Já há algo escutando na porta $Port (use -Stop para encerrar)." }
+if (Get-Listener) { Write-Output "Ja ha algo escutando na porta $Port (use -Stop para encerrar)." }
 else {
     $node = (Get-Command node).Source
     $cmd = "cmd.exe /c `"`"$node`" `"$here\serve.mjs`" $Port > `"$log`" 2>&1`""
     $r = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = $cmd; CurrentDirectory = $here }
-    if ($r.ReturnValue -ne 0) { throw "Win32_Process.Create falhou (código $($r.ReturnValue))." }
+    if ($r.ReturnValue -ne 0) { throw "Win32_Process.Create falhou (codigo $($r.ReturnValue))." }
     for ($i = 0; $i -lt 20 -and -not (Get-Listener); $i++) { Start-Sleep -Milliseconds 250 }
 }
 
@@ -34,7 +34,7 @@ try {
     $resp = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/" -UseBasicParsing -TimeoutSec 5
     Write-Output "OK: http://127.0.0.1:$Port/ respondeu HTTP $($resp.StatusCode)."
 } catch {
-    Write-Output "Servidor não respondeu na porta $Port. Log:"
+    Write-Output "Servidor nao respondeu na porta $Port. Log:"
     if (Test-Path $log) { Get-Content $log }
     exit 1
 }
