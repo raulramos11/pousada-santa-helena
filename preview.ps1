@@ -1,4 +1,4 @@
-# Preview local sem prender a sessão do shell.
+﻿# Preview local sem prender a sessão do shell.
 #   .\preview.ps1            -> sobe em 8082 desacoplado e confirma HTTP 200
 #   .\preview.ps1 -Port 8090
 #   .\preview.ps1 -Stop      -> encerra o servidor dessa porta
