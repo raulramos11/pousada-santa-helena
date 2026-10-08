@@ -8,9 +8,10 @@
      WhatsApp: só dígitos no formato 55 + DDD + número (ex.: 5511999998888).
      ============================================================ */
   var CONFIG = {
-    whatsapp: '',                 // ex.: '5511999998888'
+    // Número do Guia de Bragança (guiadebraganca.com.br) — confirmar com a pousada.
+    whatsapp: '5511973710496',
     whatsappMsg: 'Olá! Gostaria de informações e disponibilidade na Pousada Santa Helena.',
-    telefone: '',                 // ex.: '(11) 4035-0000'
+    telefone: '(11) 97371-0496',
     email: '',                    // ex.: 'contato@pousadasantahelena.com.br'
     instagram: 'pousadasantahelenaa', // perfil oficial (sem @)
   };
